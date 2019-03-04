@@ -27,8 +27,8 @@ public void setBombs()
 {
     float row = random(NUM_ROWS);
     float col = random(NUM_COLS);
-    if (!bombs.contains(buttons[row][col])){
-      
+    if (!bombs.contains(buttons[(int)row][(int)col])){
+      bombs.add(buttons[(int)row][(int)col]);
     
     }
       
@@ -93,15 +93,15 @@ public class MSButton
     {    
         if (marked)
             fill(0);
-        // else if( clicked && bombs.contains(this) ) 
-        //     fill(255,0,0);
+        else if( clicked && bombs.contains(this) ) 
+            fill(255,0,0);
         else if(clicked)
             fill( 200 );
         else 
             fill( 100 );
 
-        //rect(x, y, width, height);
-        //fill(0);
+        rect(x, y, width, height);
+        fill(0);
         text(label,x+width/2,y+height/2);
     }
     public void setLabel(String newLabel)
@@ -110,7 +110,11 @@ public class MSButton
     }
     public boolean isValid(int r, int c)
     {
-        //your code here
+        if(r<20 && r>=0){
+          if(c<20 && c>=0){
+            return true;
+          }
+        }
         return false;
     }
     public int countBombs(int row, int col)
