@@ -25,10 +25,10 @@ void setup ()
 }
 public void setBombs()
 {
-    float row = random(NUM_ROWS);
-    float col = random(NUM_COLS);
-    if (!bombs.contains(buttons[(int)row][(int)col])){
-      bombs.add(buttons[(int)row][(int)col]);
+    int row = (int)random(NUM_ROWS);
+    int col = (int)random(NUM_COLS);
+    if (bombs.contains(buttons[row][col])== false){
+      bombs.add(buttons[row][col]);
     
     }
       
